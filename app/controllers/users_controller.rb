@@ -4,6 +4,11 @@ class UsersController < Clearance::UsersController
     @shouts = @user.shouts
   end
 
+  def new
+    @user = User.new
+  end
+
+
   private
 
   def user_params
