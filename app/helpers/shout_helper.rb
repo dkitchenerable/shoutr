@@ -11,9 +11,9 @@ module ShoutHelper
     text.gsub(/@\w+/) { |mention| link_to mention, user_path(mention[1..-1]) }.html_safe
   end
 
+  # yield in line 17, so we can use specific form fields based on type. (actual code in view)
   def shout_form_for(content_type)
     form_for(Shout.new, url: content_type.new) do |form|
-      form.hidden_field(:content_type, value:content_type) + 
       form.fields_for(:content) { |content_form| yield(content_form) } +
       form.submit("Shout!")
     end 
