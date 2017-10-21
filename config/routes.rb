@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   root to: "homes#show"
 
   post "text_shouts" => "shouts#create", defaults: {content_type: TextShout}
-  post "photo_shouts" => "shouts#create", defaults: {content_type: PhotoShout}
+  post "photo_shouts" => "shouts#create", defaults: {content_type: PhotoShout}    
+  # notice use of singular resource for singular name in path
+  resource :search, only: [:show]
+
   resources :hashtags, only: [:show]
   resources :shouts, only: [:show] do
     member do

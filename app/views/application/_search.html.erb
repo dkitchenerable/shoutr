@@ -1,0 +1,7 @@
+<!-- 
+  By using a symbol ":search", the form looks for the instance variable search and prefill with attributes, thus term is prefilled!
+--> 
+<%= form_for :search, url: search_path, method: :get do |form| %>
+  <%= form.text_field :term, placeholder: "Search here" %>
+  <%= form.submit "Search" %>
+<% end %>
